@@ -1,0 +1,161 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Awareness Bot"
+        Height="774"
+        Width="1044"
+        Loaded="Window_Loaded"
+        Background="#121212"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="883*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+
+        <!-- TOP BUTTONS -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    Margin="220,0,0,10"
+                    Grid.Row="0" Grid.Column="1">
+
+            <Button x:Name="BtnChatbot"
+                    Content="Chatbot"
+                    Width="140"
+                    Height="45"
+                    Margin="5"
+                    Background="LimeGreen"
+                    Foreground="Black"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Click="BtnChatbot_Click"/>
+
+            <Button x:Name="BtnHelp"
+                    Content="Help"
+                    Width="140"
+                    Height="45"
+                    Margin="5"
+                    Background="DarkGreen"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="15"
+                    Click="BtnHelp_Click"/>
+        </StackPanel>
+
+        <!-- HEADER (SAFECHAT FIXED HERE) -->
+        <Border Grid.Row="1"
+                Background="#1F1F1F"
+                CornerRadius="10"
+                Padding="15"
+                Margin="0,0,0,10" Grid.ColumnSpan="2">
+
+            <TextBlock x:Name="AsciiArtBlock"
+                       FontFamily="Consolas"
+                       FontSize="18"
+                       Foreground="Cyan"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       LineHeight="20"
+                       RenderTransformOrigin="0.505,0.682"><Run Text=" 🛡 CYBERSECURITY AWARENESS BOT 🛡 "/><LineBreak/><Run/><Run Text=" ____         __       ____ _           _   "/><LineBreak/><Run Text="/ ___|  __ _ / _| ___ / ___| |__   __ _| |_ "/><LineBreak/><Run Text="\___ \ / _` | |_ / _ \ |   | '_ \ / _` | __|"/><LineBreak/><Run Text=" ___) | (_| |  _|  __/ |___| | | | (_| | |_ "/><LineBreak/><Run Text="|____/ \__,_|_|  \___|\____|_| |_|\__,_|\__|"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="Stay safe. Stay smart. Stay secure."/></TextBlock>
+        </Border>
+
+        <!-- MAIN CHAT AREA -->
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="330"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- CHAT HISTORY -->
+            <ListBox x:Name="ChatHistory"
+                     Grid.Column="0"
+                     Margin="0,0,10,0"
+                     Background="#1E1E1E"
+                     Foreground="White"
+                     FontSize="18"
+                     BorderThickness="0"/>
+
+            <!-- SIDE PANEL -->
+            <GroupBox Header="Cybersecurity Tips"
+                      Grid.Column="1"
+                      Background="#1F1F1F"
+                      Foreground="Lime"
+                      FontWeight="Bold"
+                      FontSize="15" Margin="0,0,10,0">
+
+                <StackPanel Margin="12,0,12,0" Height="358">
+
+                    <TextBlock Text="Suggested Questions"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               FontSize="19"
+                               Margin="0,0,0,10"/>
+
+                    <TextBlock Text="• What is cybersecurity?" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="• Phishing tips" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="• Password safety" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="• Privacy protection" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="• Online scams" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
+
+                    <Separator Margin="0,15,0,15"/>
+
+                    <TextBlock Text="Features"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               FontSize="19"
+                               Margin="0,0,0,10"/>
+
+                    <TextBlock Text="✔ Keyword Recognition" Foreground="Lime" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="✔ Random Responses" Foreground="Lime" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="✔ Sentiment Detection" Foreground="Lime" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="✔ Memory Recall" Foreground="Lime" FontSize="16" Margin="0,5"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+
+        <!-- INPUT AREA -->
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center" Grid.ColumnSpan="2">
+
+            <TextBox x:Name="UserInput"
+                     Width="730"
+                     Height="50"
+                     FontSize="19"
+                     Margin="0,0,10,0"
+                     Background="#2B2B2B"
+                     Foreground="White"
+                     BorderBrush="Lime"
+                     Padding="10"/>
+
+            <Button Content="SEND"
+                    Width="120"
+                    Height="50"
+                    Background="LimeGreen"
+                    Foreground="Black"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Click="SendButton_Click"/>
+
+            <Button Content="EXIT"
+                    Width="120"
+                    Height="50"
+                    Margin="10,0,0,0"
+                    Background="Red"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Click="ExitButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
