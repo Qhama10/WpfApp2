@@ -1,5 +1,4 @@
-﻿using System;
-using System.Media;
+﻿using System.Media;
 using System.Windows;
 
 namespace WpfApp2
@@ -7,6 +6,9 @@ namespace WpfApp2
     public partial class MainWindow : Window
     {
         private Random rand = new Random();
+
+        // ✅ ADDED: Chatbot instance
+        private Chatbot chatbot;
 
         //  RANDOM RESPONSE LISTS
         private string[] phishingTips =
@@ -38,6 +40,10 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+
+            // ✅ ADDED: chatbot + audio init
+            chatbot = new Chatbot();
+            Audio.PlayGreeting();
         }
 
         //  AUDIO + WELCOME
@@ -71,6 +77,10 @@ namespace WpfApp2
 
             Respond(input);
 
+            // ✅ ADDED: chatbot response integration (optional extra intelligence layer)
+            string chatbotResponse = chatbot.GetResponse(input);
+            ChatHistory.Items.Add("Bot: " + chatbotResponse);
+
             UserInput.Clear();
         }
 
@@ -79,7 +89,6 @@ namespace WpfApp2
         {
             Application.Current.Shutdown();
         }
-
 
         private void Respond(string input)
         {
@@ -151,6 +160,23 @@ namespace WpfApp2
         private void BtnHelp_Click(object sender, RoutedEventArgs e)
         {
             ChatHistory.Items.Add("Bot: Try asking about password safety, phishing, scams, privacy, or cybersecurity.");
+        }
+    }
+
+    // ✅ ADDED: Audio helper class
+    public static class Audio
+    {
+        public static void PlayGreeting()
+        {
+            try
+            {
+                SoundPlayer player = new SoundPlayer("WelcomeMessage.wav");
+                player.Play();
+            }
+            catch
+            {
+                // fail silently or optionally log
+            }
         }
     }
 }
