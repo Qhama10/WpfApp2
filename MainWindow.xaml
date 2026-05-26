@@ -9,10 +9,6 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="142*"/>
-            <ColumnDefinition Width="883*"/>
-        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -24,11 +20,11 @@
         <!-- TOP BUTTONS -->
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Left"
-                    Margin="220,0,0,10"
-                    Grid.Row="0" Grid.Column="1">
+                    Margin="10,0,0,10"
+                    Grid.Row="0">
 
             <Button x:Name="BtnChatbot"
-                    Content="Chatbot"
+                    Content="Chat History"
                     Width="140"
                     Height="45"
                     Margin="5"
@@ -50,39 +46,45 @@
                     Click="BtnHelp_Click"/>
         </StackPanel>
 
-        <!-- HEADER (SAFECHAT FIXED HERE) -->
+        <!-- HEADER -->
         <Border Grid.Row="1"
                 Background="#1F1F1F"
                 CornerRadius="10"
                 Padding="15"
-                Margin="0,0,0,10" Grid.ColumnSpan="2">
+                Margin="0,0,0,10">
 
-            <TextBlock x:Name="AsciiArtBlock"
-                       FontFamily="Consolas"
+            <TextBlock FontFamily="Consolas"
                        FontSize="18"
                        Foreground="Cyan"
                        TextAlignment="Center"
                        TextWrapping="Wrap"
-                       LineHeight="20"
-                       RenderTransformOrigin="0.505,0.682"><Run Text=" 🛡 CYBERSECURITY AWARENESS BOT 🛡 "/><LineBreak/><Run/><Run Text=" ____         __       ____ _           _   "/><LineBreak/><Run Text="/ ___|  __ _ / _| ___ / ___| |__   __ _| |_ "/><LineBreak/><Run Text="\___ \ / _` | |_ / _ \ |   | '_ \ / _` | __|"/><LineBreak/><Run Text=" ___) | (_| |  _|  __/ |___| | | | (_| | |_ "/><LineBreak/><Run Text="|____/ \__,_|_|  \___|\____|_| |_|\__,_|\__|"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="Stay safe. Stay smart. Stay secure."/></TextBlock>
+                       Text="🛡 CYBERSECURITY AWARENESS BOT 🛡
+____         __       ____ _           _   
+/ ___|  __ _ / _| ___ / ___| |__   __ _| |_ 
+\___ \ / _` | |_ / _ \ |   | '_ \ / _` | __|
+ ___) | (_| |  _|  __/ |___| | | | (_| | |_ 
+|____/ \__,_|_|  \___|\____|_| |_|\__,_|\__|
+Stay safe. Stay smart. Stay secure."/>
         </Border>
 
         <!-- MAIN CHAT AREA -->
-        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+        <Grid Grid.Row="2">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="330"/>
+                <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
 
-            <!-- CHAT HISTORY -->
+            <!-- CHAT HISTORY (IMPORTANT) -->
             <ListBox x:Name="ChatHistory"
                      Grid.Column="0"
                      Margin="0,0,10,0"
                      Background="#1E1E1E"
                      Foreground="White"
                      FontSize="18"
-                     BorderThickness="0"/>
+                     BorderThickness="0"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.CanContentScroll="True"/>
 
             <!-- SIDE PANEL -->
             <GroupBox Header="Cybersecurity Tips"
@@ -90,34 +92,34 @@
                       Background="#1F1F1F"
                       Foreground="Lime"
                       FontWeight="Bold"
-                      FontSize="15" Margin="0,0,10,0">
+                      FontSize="15">
 
-                <StackPanel Margin="12,0,12,0" Height="358">
+                <StackPanel Margin="10">
 
                     <TextBlock Text="Suggested Questions"
                                Foreground="White"
                                FontWeight="Bold"
-                               FontSize="19"
+                               FontSize="16"
                                Margin="0,0,0,10"/>
 
-                    <TextBlock Text="• What is cybersecurity?" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="• Phishing tips" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="• Password safety" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="• Privacy protection" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="• Online scams" Foreground="Gainsboro" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="• What is cybersecurity?" Foreground="Gainsboro" Margin="0,5"/>
+                    <TextBlock Text="• Phishing tips" Foreground="Gainsboro" Margin="0,5"/>
+                    <TextBlock Text="• Password safety" Foreground="Gainsboro" Margin="0,5"/>
+                    <TextBlock Text="• Privacy protection" Foreground="Gainsboro" Margin="0,5"/>
+                    <TextBlock Text="• Online scams" Foreground="Gainsboro" Margin="0,5"/>
 
                     <Separator Margin="0,15,0,15"/>
 
                     <TextBlock Text="Features"
                                Foreground="White"
                                FontWeight="Bold"
-                               FontSize="19"
+                               FontSize="16"
                                Margin="0,0,0,10"/>
 
-                    <TextBlock Text="✔ Keyword Recognition" Foreground="Lime" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="✔ Random Responses" Foreground="Lime" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="✔ Sentiment Detection" Foreground="Lime" FontSize="16" Margin="0,5"/>
-                    <TextBlock Text="✔ Memory Recall" Foreground="Lime" FontSize="16" Margin="0,5"/>
+                    <TextBlock Text="✔ Keyword Recognition" Foreground="Lime" Margin="0,5"/>
+                    <TextBlock Text="✔ Random Responses" Foreground="Lime" Margin="0,5"/>
+                    <TextBlock Text="✔ Memory Recall" Foreground="Lime" Margin="0,5"/>
+
                 </StackPanel>
             </GroupBox>
         </Grid>
@@ -125,10 +127,10 @@
         <!-- INPUT AREA -->
         <StackPanel Grid.Row="3"
                     Orientation="Horizontal"
-                    VerticalAlignment="Center" Grid.ColumnSpan="2">
+                    VerticalAlignment="Center">
 
             <TextBox x:Name="UserInput"
-                     Width="730"
+                     Width="750"
                      Height="50"
                      FontSize="19"
                      Margin="0,0,10,0"
@@ -155,6 +157,7 @@
                     FontWeight="Bold"
                     FontSize="16"
                     Click="ExitButton_Click"/>
+
         </StackPanel>
 
     </Grid>
