@@ -195,6 +195,52 @@
 
                         <Rectangle Height="1" Fill="#1E3A5F" Margin="0,12"/>
 
+                        <!-- FAVORITE TOPICS SECTION ADDED -->
+                        <TextBlock Text="⭐  MY FAVORITE TOPICS"
+                                   Foreground="#FFD700"
+                                   FontFamily="Segoe UI"
+                                   FontWeight="Bold"
+                                   FontSize="11"
+                                   Margin="0,0,0,8"/>
+
+                        <Border Background="#0F1923"
+                                CornerRadius="6"
+                                BorderBrush="#1E3A5F"
+                                BorderThickness="1"
+                                Padding="8"
+                                Margin="0,0,0,10">
+                            <StackPanel>
+                                <StackPanel x:Name="FavoriteTopicsPanel">
+                                    <TextBlock Text="No saved favorites yet.&#10;Say 'I'm interested in [topic]' to save!"
+                                               Foreground="#4A7FAF"
+                                               FontSize="10"
+                                               TextAlignment="Center"
+                                               FontFamily="Segoe UI"
+                                               Margin="0,5"/>
+                                </StackPanel>
+                                <Button Content="📌  Save Current Interest"
+                                        Background="#1E3A5F"
+                                        Foreground="#FFD700"
+                                        FontSize="11"
+                                        Height="28"
+                                        Margin="0,8,0,0"
+                                        Cursor="Hand"
+                                        BorderThickness="0"
+                                        Click="SaveCurrentInterest_Click"/>
+                                <Button Content="🗑  Clear Favorites"
+                                        Background="#2C1A1A"
+                                        Foreground="#E57373"
+                                        FontSize="11"
+                                        Height="28"
+                                        Margin="0,4,0,0"
+                                        Cursor="Hand"
+                                        BorderThickness="0"
+                                        Click="ClearFavorites_Click"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Rectangle Height="1" Fill="#1E3A5F" Margin="0,12"/>
+
                         <TextBlock Text="FOLLOW-UPS"
                                    Foreground="#4A7FAF"
                                    FontFamily="Segoe UI"
